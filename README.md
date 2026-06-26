@@ -8,10 +8,10 @@
 | Nome completo | GitHub | Turma |
 |--------------|--------|-------|
 | Gabriel Tavares | @username | 3A |
-| (nome 2) | @username | 3A |
+| Gustavo Gonçalves | @username | 3A |
 | (nome 3) | @username | 3A |
 
-**Tema:** (escreva aqui em 1 frase)
+**Tema:** (Plataforma de verificação de urls e aquivos)
 **Tecnologia:** Python + Flask + SQLite
 
 ---
