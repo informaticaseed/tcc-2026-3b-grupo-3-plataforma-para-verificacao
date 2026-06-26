@@ -7,9 +7,9 @@
 
 | Nome completo | GitHub | Turma |
 |--------------|--------|-------|
-| Gabriel Tavares | @username | 3A |
-| Gustavo Gonçalves | @username | 3A |
-| Yan Pinheiro | @username | 3A |
+| Gabriel Tavares | @username | 3B |
+| Gustavo Gonçalves | @username | 3B |
+| Yan Pinheiro | @username | 3B |
 
 **Tema:** (Plataforma de verificação de urls e aquivos)
 **Tecnologia:** Python + Flask + SQLite
