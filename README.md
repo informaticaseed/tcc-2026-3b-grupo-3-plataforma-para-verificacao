@@ -9,7 +9,7 @@
 |--------------|--------|-------|
 | Gabriel Tavares | @username | 3A |
 | Gustavo Gonçalves | @username | 3A |
-| (nome 3) | @username | 3A |
+| Yan Pinheiro | @username | 3A |
 
 **Tema:** (Plataforma de verificação de urls e aquivos)
 **Tecnologia:** Python + Flask + SQLite
