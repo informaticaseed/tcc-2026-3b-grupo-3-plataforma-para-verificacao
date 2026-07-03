@@ -34,7 +34,7 @@
 ## Oque fizemos até agora: 
 
 1. Separamos as linguagens de programação que vamos utilizar.
-2. Fizemos o esboço do frontend
+2. 
 3. 
 
 ## 📁 Estrutura do projeto
