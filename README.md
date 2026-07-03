@@ -33,8 +33,8 @@
 
 ## Oque fizemos até agora: 
 
-1. Separamos as linguagens de programação que vamos utilizar.
-2. Fizemos o esboço do frontend. ( desenho ) 
+1. Separamos as linguagens de programação que vamos utilizar. ( RECUPERAÇÃO )
+2. Fizemos o esboço do frontend. ( desenho )    ( RECUPERAÇÃO ) 
 3. 
 
 ## 📁 Estrutura do projeto
