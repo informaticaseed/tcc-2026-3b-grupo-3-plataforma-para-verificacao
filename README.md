@@ -18,7 +18,7 @@
 
 ## 🎯 O que o sistema faz
 
-(Descreva em 2-3 frases o problema que o sistema resolve e para quem)
+(le arquivos e links para identificar se há algum malware)
 
 ---
 
@@ -30,6 +30,12 @@
 4. **Push** — métricas de participação aparecem automaticamente no Actions
 
 ---
+
+## Oque fizemos até agora: 
+
+1. Separamos as linguagens de programação que vamos utilizar.
+2. Fizemos o esboço do frontend
+3. 
 
 ## 📁 Estrutura do projeto
 
