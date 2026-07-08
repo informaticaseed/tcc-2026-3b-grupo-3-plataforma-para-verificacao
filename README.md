@@ -11,7 +11,7 @@
 | Gustavo Gonçalves | @username | 3B |
 | Yan Pinheiro | @username | 3B |
 | Gabriel José | @username | 3B |
-
+| Paulo César | @username | 3B |
 
 **Tema:** (Plataforma de verificação de urls e aquivos)
 **Tecnologia:** Python + FastAPI + SQLite
