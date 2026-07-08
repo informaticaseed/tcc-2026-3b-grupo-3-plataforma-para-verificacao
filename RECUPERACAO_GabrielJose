@@ -1,0 +1,12 @@
+Uma Issue é um espaço de discussão e registro digital usado no desenvolvimento de software. Ela funciona como um bilhete ou tarefa. As equipes usam as issues para organizar o trabalho, registrar erros, pedir novas funções e acompanhar o progresso de um projeto
+
+Um pull request é um pedido formal para adicionar suas alterações de código à versão principal do projeto. Ele avisa a equipe que você terminou uma tarefa, como criar um recurso novo ou consertar um erro, e convida outros programadores a revisarem seu trabalho antes de juntá-lo ao sistema
+
+A separação de camadas divide o código de um programa em blocos independentes. Cada bloco tem uma tarefa única. Por exemplo, uma camada cuida da tela que você vê, outra das regras matemáticas e a última de salvar os dados. Isso facilita muito a manutenção e evita bagunça no sistema.
+
+Em relação ao TCC, foi deixado de fazer o banco de dados pois foi decidido que era melhor implementar as rotas de get, patch, post, etc de maneira mais eficiente primeiro. Após isso darei inicio ao banco de dados.
+
+No terceiro bimestre planejamos ter o Banco de Dados, Front end funcional, e APIs de verificação funcionando
+
+
+
