@@ -14,13 +14,13 @@
 
 
 **Tema:** (Plataforma de verificação de urls e aquivos)
-**Tecnologia:** Python + Flask + SQLite
+**Tecnologia:** Python + FastAPI + SQLite
 
 ---
 
 ## 🎯 O que o sistema faz
 
-(le arquivos e links para identificar se há algum malware)
+(Utiliza de APIs conhecidas para verificar se é possivel que um link/arquivo seja malicioso e mostra um "score" para o usuario, 0 sendo não confiavel e 100 sendo extremamente confiavel)
 
 ---
 
