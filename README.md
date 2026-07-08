@@ -10,6 +10,8 @@
 | Gabriel Tavares | @username | 3B |
 | Gustavo Gonçalves | @username | 3B |
 | Yan Pinheiro | @username | 3B |
+| Gabriel José | @username | 3B |
+
 
 **Tema:** (Plataforma de verificação de urls e aquivos)
 **Tecnologia:** Python + Flask + SQLite
@@ -35,7 +37,7 @@
 
 1. Separamos as linguagens de programação que vamos utilizar. ( RECUPERAÇÃO )
 2. Fizemos o esboço do frontend. ( desenho )    ( RECUPERAÇÃO ) 
-3. 
+3. Implementamos as rotas de get do backend ( RECUPERAÇÃO )
 
 ## 📁 Estrutura do projeto
 
