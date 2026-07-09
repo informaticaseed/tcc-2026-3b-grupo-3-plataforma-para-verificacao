@@ -10,15 +10,17 @@
 | Gabriel Tavares | @username | 3B |
 | Gustavo Gonçalves | @username | 3B |
 | Yan Pinheiro | @username | 3B |
+| Gabriel José | @username | 3B |
+| Paulo César | @username | 3B |
 
 **Tema:** (Plataforma de verificação de urls e aquivos)
-**Tecnologia:** Python + Flask + SQLite
+**Tecnologia:** Python + FastAPI + SQLite
 
 ---
 
 ## 🎯 O que o sistema faz
 
-(Descreva em 2-3 frases o problema que o sistema resolve e para quem)
+(Utiliza de APIs conhecidas para verificar se é possivel que um link/arquivo seja malicioso e mostra um "score" para o usuario, 0 sendo não confiavel e 100 sendo extremamente confiavel)
 
 ---
 
@@ -30,6 +32,12 @@
 4. **Push** — métricas de participação aparecem automaticamente no Actions
 
 ---
+
+## Oque fizemos até agora: 
+
+1. Separamos as linguagens de programação que vamos utilizar. ( RECUPERAÇÃO )
+2. Fizemos o esboço do frontend. ( desenho )    ( RECUPERAÇÃO ) 
+3. Implementamos as rotas de get do backend ( RECUPERAÇÃO )
 
 ## 📁 Estrutura do projeto
 
