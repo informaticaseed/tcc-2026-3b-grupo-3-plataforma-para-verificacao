@@ -1,7 +1,7 @@
 # Acompanhamento Quinzenal — Prof. Rafael
-**Grupo:** [Nome do Grupo]
-**Turma:** 3A / 3B / 3C
-**Repositório:** [link]
+**Grupo:** Plataforma para Verificação
+**Turma:** 3B
+
 
 ---
 
@@ -11,9 +11,18 @@
 
 | Integrante | O que se comprometeu a fazer |
 |-----------|------------------------------|
-| (nome 1) | |
-| (nome 2) | |
-| (nome 3) | |
+| Gabriel José | Backend verificar segurança por meio de api para verificaçã0 de malware
+ |
+| Yan Pinheiro | Relatório: verificar o que está faltando em relação ao modelo enviado pela Thelia: resumo |
+| Gustavo Gonçalves | Desenvolvimento/codificar de frontend do início|
+| Paulo César | Levantamento dos requisitos e diagrama de caso de uso|
+| Arthur Henrique | Continuação do desenvolvimento do banco de taves |
+| Gabriel Tavares | Modelagem do frontend |
+
+Backlog:
+- Backend verificar segurança por meio de api para verificaçã0 de malware
+- Desenvolvimento de frontend do início
+- Relatório: prints da aplicação e verificar o que está faltando em relação ao modelo enviado pela Thelia
 
 ### Verificação em 08/08
 
