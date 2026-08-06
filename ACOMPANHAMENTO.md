@@ -11,8 +11,7 @@
 
 | Integrante | O que se comprometeu a fazer |
 |-----------|------------------------------|
-| Gabriel José | Backend verificar segurança por meio de api para verificaçã0 de malware
- |
+| Gabriel José | Backend verificar segurança por meio de api para verificaçã0 de malware |
 | Yan Pinheiro | Relatório: verificar o que está faltando em relação ao modelo enviado pela Thelia: resumo |
 | Gustavo Gonçalves | Desenvolvimento/codificar de frontend do início|
 | Paulo César | Levantamento dos requisitos e diagrama de caso de uso|
