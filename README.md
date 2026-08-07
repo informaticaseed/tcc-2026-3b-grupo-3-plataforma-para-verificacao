@@ -20,7 +20,7 @@
 
 ## 🎯 O que o sistema faz
 
-(Utiliza de APIs conhecidas para verificar se é possivel que um link/arquivo seja malicioso e mostra um "score" para o usuario, 0 sendo não confiavel e 100 sendo extremamente confiavel)
+ele faz a proteção dos seus dados
 
 ---
 
