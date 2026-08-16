@@ -16,9 +16,9 @@
 
 | # | Funcionalidade | Prioridade | Status |
 |---|---------------|-----------|--------|
-| 1 | (escreva aqui) | Alta | ⏳ A fazer |
-| 2 | (escreva aqui) | Alta | ⏳ A fazer |
-| 3 | (escreva aqui) | Alta | ⏳ A fazer |
+| 1 | Adicionar mais verificações | Alta | 🔄 A fazer |
+| 2 | Terminar o banco de dados | Alta | 🔄 A fazer |
+| 3 | Iniciar o codigo da frontend | Alta | 🔄 A fazer |
 | 4 | (escreva aqui) | Média | ⏳ A fazer |
 | 5 | (escreva aqui) | Média | ⏳ A fazer |
 | 6 | (escreva aqui) | Baixa | ⏳ A fazer |
