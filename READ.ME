@@ -1,8 +1,36 @@
 README.TXT
 
+# Plataforma para verificação de URLs em busca phishing
 
+Nosso projeto utiliza diferentes verificações para determinar se a URL pode
+ser segura ou não.
 
+# Sobre o projeto
 
+- As tentativas de phishing vem aumentando muito ao passar dos anos, logo, nós
+decidimos criar uma Plataforma para facilitar a vida do usuario comum que não
+possui tanto conhecimento sobre URLs
+
+# Funcionalidades
+
+- Verifica o tamanho da URL
+- Verifica se o site é em HTTP ou HTTPS(Https não garante a segurança, mas é mais seguro comparado a HTTP)
+- Verifica se o link possui um @, que é utilizado para esconder coisas dentro da URL
+- Verifica se o link possui um endereço de IP
+- Utiliza a API do VirusTotal para uma verificação ainda mais eficaz
+- Banco de dados que guarda os links enviados por usuarios para que caso alguém mande o mesmo link futuramente ele seja verificado de forma mais rapida
+
+# Como executar
+
+pip install -r Requirements.txt
+
+após o pip, utilize a seguinte linha de codigo no terminal:
+
+python -m uvicorn src.Controller.SiteController:criar_app --factory --reload
+
+Após isso abra o endereço que aparece no seu terminal que tem esse formato: http://xxx.x.x.x:xxxx
+
+Aproveite o nosso projeto e obrigado!
 
 
 
