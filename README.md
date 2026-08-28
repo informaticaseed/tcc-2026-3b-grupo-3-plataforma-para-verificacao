@@ -20,7 +20,7 @@
 
 ## 🎯 O que o sistema faz
 
-ele faz a proteção dos seus dados
+ele faz a verificação de arquivos e url
 
 ---
 
