@@ -14,5 +14,5 @@ async function analisarURL() {
 
     const resultado = await resposta.json();
 
-    console.log(resultado);
+    document.getElementById("resultado").innerText = JSON.stringify(resultado);
 }
