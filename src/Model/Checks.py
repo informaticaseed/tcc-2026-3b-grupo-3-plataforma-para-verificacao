@@ -18,8 +18,7 @@ def check_http(url):
         return 20, "O URL utiliza HTTP"
     else:
         return 20, "O URL não utiliza HTTP/HTTPS"
-    
-    
+
 def check_at_symbol(url):
 #O @ pode ser utilizado para esconder o dominio real do site, sendo utilizado em links de phishing.
     if "@" in url:
