@@ -1,4 +1,5 @@
 import os
+import time
 import requests
 
 
@@ -35,16 +36,28 @@ def get_analysis(analysis_id):
 
     return response.json()
 
+def analisar_virustotal(url):
+
+    resultado = scan_url(url)
+
+    analysis_id = resultado['data']['id']
+
+    while True:
+
+        analise = get_analysis(analysis_id)
+
+        status = analise ["data"]["attributes"]["status"]
+
+        print("Status:", status)
+
+        if status == "completed":
+            return analise["data"]["attributes"]["stats"]
+
+        time.sleeps(5)
+
 
 if __name__ == "__main__":
 
-    resultado = scan_url("https://example.com")
+    resultado = analisar_virustotal("https://example.com")
 
-    analysis_id = resultado["data"]["id"]
-
-    analise = get_analysis(analysis_id)
-
-    attributes = analise["data"]["attributes"]
-
-    print("STATUS:", attributes.get("status"))
-    print("STATS:", attributes.get("stats"))
+    print(resultado)
