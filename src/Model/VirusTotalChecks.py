@@ -11,16 +11,24 @@ def scan_url(url):
         "x-apikey": api_key
     }
 
-    response = requests.post(
-    "https://www.virustotal.com/api/v3/urls",
-    headers=headers,
-    data={
-        "url": url
-    },
-    timeout=10
-    )
+    try:
+        response = requests.post(
+            "https://www.virustotal.com/api/v3/urls",
+            headers=headers,
+            data={
+                "url": url
+            },
+            timeout=10
+        )
 
-    return response.json()
+        response.raise_for_status()
+
+        return response.json()
+
+    except requests.exceptions.RequestException as erro:
+        return {
+            "error": str(erro)
+        }
 
 def get_analysis(analysis_id):
 
@@ -32,15 +40,26 @@ def get_analysis(analysis_id):
 
     print("GETTING ANALYSIS...")
 
-    response = requests.get(
-        f"https://www.virustotal.com/api/v3/analyses/{analysis_id}",
-        headers=headers,
-        timeout=10
-    )
+    try:
+        response = requests.get(
+            f"https://www.virustotal.com/api/v3/analyses/{analysis_id}",
+            headers=headers,
+            timeout=10
+        )
 
-    print("GOT RESPONSE:", response.status_code)
+        response.raise_for_status()
 
-    return response.json()
+        print("GOT RESPONSE:", response.status_code)
+
+        return response.json()
+
+    except requests.exceptions.RequestException as erro:
+
+        print("ERROR GETTING ANALYSIS:", erro)
+
+        return {
+            "error": str(erro)
+        }
 
 def analisar_virustotal(url):
 
@@ -53,14 +72,19 @@ def analisar_virustotal(url):
 
     if "error" in resultado:
         return {
-            "erro": resultado["error"]["message"]
+            "erro": resultado["error"]
         }
 
-    analysis_id = resultado["data"]["id"]
+    analysis_id = resultado.get("data", {}).get("id")
 
-    tentativas = 0
+    if not analysis_id:
+        return{
+            "erro": "resposta inesperada do virustotal"
+        }
 
-    while tentativas < 10:
+    inicio = time.time()
+
+    while time.time() - inicio <180:
 
         print("Before GET")
 
@@ -70,7 +94,18 @@ def analisar_virustotal(url):
 
         print("After GET")
 
-        status = analise["data"]["attributes"]["status"]
+        if "error" in analise:
+            return {
+                "erro": analise['error']
+            }
+
+        attributes = analise.get("data", {}).get("attributes", {})
+        status = attributes.get("status")
+
+        if not status:
+            return {
+                "erro": "Resposta inesperada do VirusTotal"
+            }
 
         print("Status:", status)
 
@@ -79,7 +114,7 @@ def analisar_virustotal(url):
 
         time.sleep(20)
 
-        tentativas += 1
+        
     return {
         "erro": "Timeout"
     }
