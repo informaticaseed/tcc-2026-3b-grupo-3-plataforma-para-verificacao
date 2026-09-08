@@ -1,9 +1,10 @@
-def resultado_analise(url, score, reasons):
+def resultado_analise(url, score, reasons, virustotal):
 
     return {
             "url": url,
             "Nivel de perigo": score,
-            "Motivo:": reasons
+            "Motivo:": reasons,
+            "VirusTotal": virustotal
         }
 
 def pagina_inicial():

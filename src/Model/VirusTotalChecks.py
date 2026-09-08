@@ -40,20 +40,25 @@ def analisar_virustotal(url):
 
     resultado = scan_url(url)
 
-    analysis_id = resultado['data']['id']
+    print("================================")
+    print("VT RESPONSE:")
+    print(resultado)
+    print("================================")
+
+    analysis_id = resultado["data"]["id"]
 
     while True:
 
         analise = get_analysis(analysis_id)
 
-        status = analise ["data"]["attributes"]["status"]
+        status = analise["data"]["attributes"]["status"]
 
         print("Status:", status)
 
         if status == "completed":
             return analise["data"]["attributes"]["stats"]
 
-        time.sleeps(5)
+        time.sleep(5)
 
 
 if __name__ == "__main__":
