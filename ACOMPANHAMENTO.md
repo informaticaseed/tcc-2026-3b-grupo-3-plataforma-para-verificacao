@@ -38,13 +38,16 @@ Backlog:
 
 ## Quinzena 2 — 10/08 a 22/08
 
-### Compromissos assumidos em 10/08
+### Compromissos assumidos em 11/09
 
 | Integrante | O que se comprometeu a fazer |
 |-----------|------------------------------|
-| (nome 1) | |
-| (nome 2) | |
-| (nome 3) | |
+| Gabriel José |Integração do backend com o frontend|
+| Yan Pinheiro | Relatório: verificar o que está faltando em relação ao modelo enviado pela Thelia: resumo |
+| Gustavo Gonçalves | Desenvolvimento/codificar/integração de frontend com o backend|
+| Paulo César | Levantamento dos requisitos e diagrama de caso de uso, diagrama DFD e diagrama entidade relacionamento do banco de dados
+| Arthur Henrique | Integração do banco de dados com o backend  |
+| Gabriel Tavares | Modelagem do frontend e integração de frontend com o backend |
 
 ### Verificação em 22/08
 
