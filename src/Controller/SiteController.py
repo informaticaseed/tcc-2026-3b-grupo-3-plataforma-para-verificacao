@@ -4,6 +4,7 @@ from src.Model.Checks import analisar_url
 from src.View.main import resultado_analise, pagina_inicial
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from src.Model.VirusTotalChecks import analisar_virustotal
 
 
 class URLCheckerRequest(BaseModel):
@@ -45,14 +46,22 @@ def criar_app():
         # Converte a URL recebida pelo Pydantic para string
         url = str(payload.url)
 
+        print("Chamando o VT")
+
       # Envia a URL para o Model
         score, reasons = analisar_url(url)
+
+        virustotal = analisar_virustotal(url)
+
+        print("VT finished")
+
 
         # Envia o resultado para a View
         return resultado_analise(
             url,
             score,
-            reasons
+            reasons,
+            virustotal
         )
 
 
