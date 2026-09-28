@@ -1,4 +1,7 @@
 from urllib.parse import urlparse
+import tldextract
+
+
 
 
 def check_length(url):
@@ -38,7 +41,7 @@ def check_ip(url):
     if len(parts) == 4 and all(part.isnumeric() for part in parts):
         return 20, "O URL utiliza um endereço IP"
 
-    return 0, "O URL utiliza um domínio que pareçe seguro"
+    return 0, "O URL utiliza um domínio que pareçe normal"
 
 
 def analisar_url(url):
@@ -60,5 +63,6 @@ def analisar_url(url):
     points, reason = check_ip(url)
     score += points
     reasons.append(reason)
+
 
     return score, reasons

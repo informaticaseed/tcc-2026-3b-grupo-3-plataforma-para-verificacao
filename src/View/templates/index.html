@@ -1,29 +1,76 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!-- Add this inside your <head> tag -->
+<link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<head>
+<div class="security-dashboard">
+  
+  <!-- Header -->
+  <div class="page-header">
+    <div class="header-icon"><i class="fa-solid fa-shield-halved"></i></div>
+    <h1>Segurança em primeiro lugar</h1>
+  </div>
+
+  <!-- Main Action Cards -->
+  <div class="action-grid">
     
-    <meta charset="UFT-8">
-    <title>URL Checker</title>
+    <!-- File Upload Card -->
+    <div class="card">
+      <h2 class="card-title"><i class="fa-regular fa-file"></i> Verificar Arquivo</h2>
+      <div class="upload-area">
+        <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+        <p>Arraste e solte o arquivo aqui</p>
+        <button class="btn-outline">Selecionar Arquivo</button>
+      </div>
+    </div>
 
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
+    <!-- URL Check Card -->
+    <div class="card">
+      <h2 class="card-title"><i class="fa-solid fa-link"></i> Verificar URL</h2>
+      <p class="card-desc">Insira um endereço web para verificar phishing, distribuição de malware ou scripts mal-intencionados sem visitar o site.</p>
+      
+      <div class="input-group">
+        <i class="fa-solid fa-globe"></i>
+        <input type="text" placeholder="https://exemplo.com">
+      </div>
+      
+      <button class="btn-solid"><i class="fa-solid fa-expand"></i> Verificar Link</button>
+    </div>
+  </div>
 
-
-
-<body>
-
-    <h1>Analisador de URLs</h1>
-
-    <p>Digite uma URL para analisar:</p>
-
-    <input type="text" id="url">
-
-    <button onclick="analisarURL()">Analisar</button>
-    <div id="resultado"></div>
-
-    <script src="/static/js/script.js"></script>
-
-</body>
-
-</html>
+  <!-- Recent Analyses Table -->
+  <div class="recent-section">
+    <h2 class="section-title"><i class="fa-solid fa-clock-rotate-left"></i> Análises Recentes</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>DATA / HORA</th>
+            <th>ARQUIVO</th>
+            <th>TIPO</th>
+            <th>STATUS</th>
+            <th>AÇÃO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Jinja Loop Placeholder: {% for result in recent_results %} -->
+          <tr>
+            <td>Hoje, 14:32</td>
+            <td>invoice_urgent_v2.exe</td>
+            <td>Arquivo</td>
+            <td><span class="status-badge status-malicious"><i class="fa-solid fa-circle"></i> Malicioso</span></td>
+            <td><i class="fa-solid fa-lock text-muted"></i></td>
+          </tr>
+          <tr>
+            <td>Hoje, 11:05</td>
+            <td>https://bestphotos/all-time-best.mp4</td>
+            <td>URL</td>
+            <td><span class="status-badge status-safe"><i class="fa-solid fa-circle"></i> Seguro</span></td>
+            <td><i class="fa-solid fa-lock text-muted"></i></td>
+          </tr>
+          <!-- {% endfor %} -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+</div>

@@ -1,11 +1,17 @@
 import os
 import time
 import requests
+from dotenv import load_dotenv
 
+load_dotenv()
 
 def scan_url(url):
 
     api_key = os.getenv("VT_API_KEY")
+
+    print("API KEY EXISTS:", api_key is not None)
+    print("API KEY LENGTH:", len(api_key) if api_key else 0)
+
 
     headers = {
         "x-apikey": api_key
