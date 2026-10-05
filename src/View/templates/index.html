@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Analisador de URLs</title>
+    <title>Verificação de segurança</title>
 
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
@@ -16,48 +16,60 @@
 
         <!-- HEADER -->
         <header class="header">
-            <div class="header-icon">🛡</div>
-
-            <div>
-                <h1>Segurança em primeiro lugar</h1>
-            </div>
+            <div class="header-icon" aria-hidden="true">🛡</div>
+            <h1>Segurança em primeiro lugar</h1>
         </header>
 
+        <div class="analyzer-grid">
+            <section class="url-section analyzer-card">
+                <div class="section-title">
+                    <span class="link-icon" aria-hidden="true">📄</span>
+                    <h2>Verificar arquivo</h2>
+                </div>
 
-        <!-- URL ANALYZER -->
-        <section class="url-section">
+                <div class="drop-zone" id="drop-zone">
+                    <span class="drop-zone-icon" aria-hidden="true">☁</span>
+                    <p>Arraste e solte o arquivo aqui</p>
+                    <span class="drop-zone-or">ou</span>
+                    <input class="file-field" type="file" id="file" name="file">
+                    <label class="file-picker-button" for="file">Selecionar Arquivo</label>
+                    <span class="file-name" id="file-name" aria-live="polite"></span>
+                </div>
 
-            <div class="section-title">
-                <span class="link-icon">🔗</span>
-                <h2>Verificar URL</h2>
-            </div>
+                <p class="upload-notice">Tamanho máximo: 32 MB. O arquivo será enviado ao VirusTotal.</p>
+                <button id="analisar-arquivo-button" onclick="analisarArquivo()">
+                    <span aria-hidden="true">⛶</span>
+                    Verificar arquivo
+                </button>
+            </section>
 
-            <p class="description">
-                Insira um endereço web para verificar phishing,
-                distribuição de malware ou scripts mal-intencionados.
-            </p>
+            <section class="url-section analyzer-card">
+                <div class="section-title">
+                    <span class="link-icon" aria-hidden="true">🔗</span>
+                    <h2>Verificar URL</h2>
+                </div>
 
+                <p class="description">
+                    Insira um endereço web para verificar phishing, distribuição de malware ou scripts mal-intencionados.
+                </p>
 
-            <div class="input-container">
+                <div class="input-container">
+                    <span class="input-icon" aria-hidden="true">🌐</span>
+                    <input
+                        type="url"
+                        id="url"
+                        placeholder="https://exemplo.com"
+                        autocomplete="url"
+                        aria-label="Endereço da URL para verificar"
+                    >
+                </div>
 
-                <span class="input-icon">🌐</span>
-
-                <input
-                    type="text"
-                    id="url"
-                    placeholder="https://exemplo.com"
-                    autocomplete="off"
-                >
-
-            </div>
-
-
-            <button id="analisar-button" onclick="analisarURL()">
-                <span>⛶</span>
-                Verificar Link
-            </button>
-
-        </section>
+                <button id="analisar-button" onclick="analisarURL()">
+                    <span aria-hidden="true">⛶</span>
+                    Verificar Link
+                </button>
+            </section>
+        </div>
 
 
         <!-- RESULTADO -->
@@ -74,9 +86,11 @@
 
         </section>
 
+        {% include "_history.html" %}
+
     </main>
 
-
+    <script src="/static/js/history.js"></script>
     <script src="/static/js/script.js"></script>
 
 </body>

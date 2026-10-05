@@ -1,2 +1,7 @@
-uvicorn
 fastapi
+uvicorn
+python-dotenv
+requests
+tldextract
+jinja2
+python-multipart

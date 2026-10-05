@@ -1,0 +1,29 @@
+<section class="history-section" aria-labelledby="history-title">
+    <div class="history-heading">
+        <div class="section-title">
+            <span class="history-icon" aria-hidden="true">◷</span>
+            <h2 id="history-title">Análises recentes</h2>
+        </div>
+        <button class="clear-history-button" id="clear-history" type="button">Limpar histórico</button>
+    </div>
+
+    <p class="history-feedback" id="history-feedback" aria-live="polite"></p>
+    <div class="history-table-wrap">
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th scope="col">Data / hora</th>
+                    <th scope="col">Arquivo / URL</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="history-action-heading">Ação</th>
+                </tr>
+            </thead>
+            <tbody id="history-entries">
+                <tr>
+                    <td colspan="5" class="history-empty">Nenhuma análise realizada ainda.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

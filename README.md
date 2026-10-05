@@ -20,7 +20,7 @@
 
 ## 🎯 O que o sistema faz
 
-ele faz a verificação de arquivos e url
+ele faz a verificação de arquivos e URLs. A página inicial permite analisar URLs e arquivos de até 32 MB, enviados ao VirusTotal. As análises recentes ficam salvas no armazenamento local do navegador. A verificação local de URLs calcula uma pontuação heurística de 0 a 100: abaixo de 50 indica baixo risco, de 50 a 69 indica suspeita, e 70 ou mais indica risco elevado. Essa pontuação não é uma probabilidade nem substitui uma análise de reputação como a do VirusTotal.
 
 ---
 
@@ -62,7 +62,7 @@ ele faz a verificação de arquivos e url
 git clone <URL>
 
 # Rodar o projeto
-pip install -r requirements.txt
+pip install -r Requirements.txt
 python src/app.py
 
 # Rodar os testes

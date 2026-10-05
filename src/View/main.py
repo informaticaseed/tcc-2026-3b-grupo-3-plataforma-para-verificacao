@@ -7,6 +7,12 @@ def resultado_analise(url, score, reasons, virustotal):
             "VirusTotal": virustotal
         }
 
+def resultado_arquivo(filename, virustotal):
+    return {
+        "arquivo": filename,
+        "VirusTotal": virustotal
+    }
+
 def pagina_inicial():
 
     return {
