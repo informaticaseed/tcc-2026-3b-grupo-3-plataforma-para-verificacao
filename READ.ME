@@ -17,7 +17,7 @@ possui tanto conhecimento sobre URLs
 - Verifica se o site é em HTTP ou HTTPS(Https não garante a segurança, mas é mais seguro comparado a HTTP)
 - Verifica se o link possui um @, que é utilizado para esconder coisas dentro da URL
 - Verifica se o link possui um endereço de IP
-- Utiliza a API do VirusTotal para uma verificação ainda mais eficaz
+- Utiliza a API do VirusTotal para uma verificar em mais de 85 engines confiaveis
 - Banco de dados que guarda os links enviados por usuarios para que caso alguém mande o mesmo link futuramente ele seja verificado de forma mais rapida
 
 # Como executar
@@ -31,7 +31,6 @@ python -m uvicorn src.Controller.SiteController:criar_app --factory --reload
 Após isso abra o endereço que aparece no seu terminal que tem esse formato: http://xxx.x.x.x:xxxx
 
 Aproveite o nosso projeto e obrigado!
-
 
 
 

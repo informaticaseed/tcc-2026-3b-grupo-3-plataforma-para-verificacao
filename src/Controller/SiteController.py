@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, Request
 from pydantic import BaseModel, HttpUrl
 from src.Model.Checks import analisar_url
@@ -16,10 +17,13 @@ def criar_app():
     app = FastAPI()
 
 
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    static_path = os.path.join(current_dir, "..", "View", "static")
 
+    
     app.mount(
         "/static",
-        StaticFiles(directory="src/View/static"),
+        StaticFiles(directory=static_path),
         name="static"
     )
 

@@ -2,25 +2,80 @@
 <html lang="pt-BR">
 
 <head>
-    
-    <meta charset="UFT-8">
-    <title>URL Checker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analisador de URLs</title>
 
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
-
-
 <body>
 
-    <h1>Analisador de URLs</h1>
+    <main class="container">
 
-    <p>Digite uma URL para analisar:</p>
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-icon">🛡</div>
 
-    <input type="text" id="url">
+            <div>
+                <h1>Segurança em primeiro lugar</h1>
+            </div>
+        </header>
 
-    <button onclick="analisarURL()">Analisar</button>
-    <div id="resultado"></div>
+
+        <!-- URL ANALYZER -->
+        <section class="url-section">
+
+            <div class="section-title">
+                <span class="link-icon">🔗</span>
+                <h2>Verificar URL</h2>
+            </div>
+
+            <p class="description">
+                Insira um endereço web para verificar phishing,
+                distribuição de malware ou scripts mal-intencionados.
+            </p>
+
+
+            <div class="input-container">
+
+                <span class="input-icon">🌐</span>
+
+                <input
+                    type="text"
+                    id="url"
+                    placeholder="https://exemplo.com"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <button id="analisar-button" onclick="analisarURL()">
+                <span>⛶</span>
+                Verificar Link
+            </button>
+
+        </section>
+
+
+        <!-- RESULTADO -->
+        <section id="resultado-container" class="resultado-container">
+
+            <div class="result-title">
+                <span>🔎</span>
+                <h2>Resultado da análise</h2>
+            </div>
+
+            <div id="resultado">
+                <!-- O JavaScript coloca os resultados aqui -->
+            </div>
+
+        </section>
+
+    </main>
+
 
     <script src="/static/js/script.js"></script>
 
