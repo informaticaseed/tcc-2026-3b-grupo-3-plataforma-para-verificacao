@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analisador de arquivos</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="header">
+            <div class="header-icon">🛡</div>
+
+            <div>
+                <h1>Segurança em primeiro lugar</h1>
+            </div>
+        </header>
+
+        <nav class="mode-switch" aria-label="Tipo de análise">
+            <a class="mode-link" href="/">🔗 Verificar URL</a>
+            <a class="mode-link" href="/file" aria-current="page">📄 Verificar arquivo</a>
+        </nav>
+
+        <section class="url-section">
+
+            <div class="section-title">
+                <span class="link-icon">📄</span>
+                <h2>Verificar arquivo</h2>
+            </div>
+
+            <p class="description">
+                Selecione um arquivo para verificar se ele foi identificado como mal-intencionado.
+            </p>
+
+            <div class="drop-zone" id="drop-zone">
+                <span class="drop-zone-icon" aria-hidden="true">☁</span>
+                <p>Arraste e solte o arquivo aqui</p>
+                <span class="drop-zone-or">ou</span>
+                <input class="file-field" type="file" id="file" name="file">
+                <label class="file-picker-button" for="file">Selecionar Arquivo</label>
+                <span id="file-name" class="file-name" aria-live="polite"></span>
+            </div>
+
+            <p class="upload-notice">
+                O arquivo será enviado ao VirusTotal para análise. Tamanho máximo: 32 MB.
+            </p>
+
+            <button id="analisar-arquivo-button" onclick="analisarArquivo()">
+                <span>⛶</span>
+                Verificar arquivo
+            </button>
+
+        </section>
+
+        <section id="resultado-container" class="resultado-container">
+
+            <div class="result-title">
+                <span>🔎</span>
+                <h2>Resultado da análise</h2>
+            </div>
+
+            <div id="resultado"></div>
+
+        </section>
+
+        {% include "_history.html" %}
+
+    </main>
+
+    <script src="/static/js/history.js"></script>
+    <script src="/static/js/script.js"></script>
+
+</body>
+
+</html>

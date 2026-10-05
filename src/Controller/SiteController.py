@@ -1,12 +1,13 @@
 import os
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, File, Request, UploadFile, HTTPException
 from pydantic import BaseModel, HttpUrl
 from src.Model.Checks import analisar_url
-from src.View.main import resultado_analise, pagina_inicial
+from src.View.main import resultado_analise, resultado_arquivo, pagina_inicial
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from src.Model.VirusTotalChecks import analisar_virustotal
+from src.Model.VirusTotalChecks import analisar_arquivo, analisar_virustotal
 
+MAX_FILE_SIZE = 32 * 1024 * 1024
 
 class URLCheckerRequest(BaseModel):
     url: HttpUrl
@@ -41,6 +42,13 @@ def criar_app():
             request=request,
             name="index.html"
         )
+
+    @app.get("/file")
+    def file_page(request: Request):
+        return templates.TemplateResponse(
+            request=request,
+            name="file.html"
+        )
         
 
 
@@ -67,6 +75,31 @@ def criar_app():
             reasons,
             virustotal
         )
+
+    @app.post("/check_file")
+    def check_file(file: UploadFile = File(...)):
+        filename = file.filename or "arquivo"
+        print(f"[File scan] Received upload: {filename}")
+
+        content = file.file.read(MAX_FILE_SIZE + 1)
+        print(f"[File scan] Read {len(content)} bytes from upload.")
+
+        if len(content) > MAX_FILE_SIZE:
+            print(f"[File scan] Rejected {filename}: file exceeds the 32 MB limit.")
+            raise HTTPException(
+                status_code=413,
+                detail="O arquivo deve ter no máximo 32 MB."
+            )
+
+        print(f"[File scan] Sending {filename} to VirusTotal for analysis.")
+        virustotal = analisar_arquivo(
+            filename,
+            content,
+            file.content_type or "application/octet-stream"
+        )
+        print(f"[File scan] Analysis finished for {filename}: {virustotal}")
+
+        return resultado_arquivo(filename, virustotal)
 
 
     return app

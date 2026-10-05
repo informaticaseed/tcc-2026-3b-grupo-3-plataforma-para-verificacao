@@ -67,6 +67,32 @@ body {
     color: #e5ecef;
 }
 
+.mode-switch {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mode-link {
+    flex: 1;
+    padding: 13px 16px;
+    border: 1px solid #1b3039;
+    border-radius: 8px;
+    background: #0b1a22;
+    color: #9aa9af;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.mode-link:hover,
+.mode-link[aria-current="page"] {
+    border-color: #00bfc6;
+    background: #0e252d;
+    color: #e5ecef;
+}
+
 
 /* =========================
    URL SECTION
@@ -167,6 +193,64 @@ body {
     color: #68777e;
 }
 
+.file-input-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 58px;
+    padding: 8px 12px;
+    border: 1px solid #26343b;
+    border-radius: 5px;
+    background: #202a30;
+}
+
+.file-name {
+    flex: 1;
+    overflow: hidden;
+    color: #cbd5d9;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-field {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+.file-picker-button {
+    flex-shrink: 0;
+    padding: 10px 12px;
+    border: 1px solid #34434a;
+    border-radius: 5px;
+    color: #dce5e9;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.file-picker-button:hover {
+    background: #26343b;
+    color: #ffffff;
+}
+
+.file-field:focus-visible + .file-picker-button {
+    outline: 2px solid #00bfc6;
+    outline-offset: 2px;
+}
+
+.upload-notice {
+    margin-top: 10px;
+    color: #8d9da5;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
 
 /* =========================
    BUTTON
@@ -203,6 +287,29 @@ body {
 #analisar-button:disabled {
     cursor: wait;
 
+    opacity: 0.6;
+}
+
+#analisar-arquivo-button {
+    width: 100%;
+    height: 48px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #202a30;
+    color: #cbd5d9;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+#analisar-arquivo-button:hover {
+    background: #26343b;
+    color: #ffffff;
+}
+
+#analisar-arquivo-button:disabled {
+    cursor: wait;
     opacity: 0.6;
 }
 
@@ -293,6 +400,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
 
     background: #09151c;
 
@@ -304,9 +412,29 @@ body {
 }
 
 .danger-label {
+    display: block;
     color: #9aa9af;
 
     font-size: 13px;
+}
+
+.risk-summary {
+    flex: 1;
+}
+
+.risk-meter {
+    height: 7px;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #1b3039;
+}
+
+.risk-meter-fill {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    transition: width 0.25s ease;
 }
 
 .danger-value {
@@ -315,6 +443,43 @@ body {
     font-weight: bold;
 
     color: #00d9a6;
+    white-space: nowrap;
+}
+
+.danger-value small {
+    margin-left: 2px;
+    color: #819198;
+    font-size: 12px;
+}
+
+.risk-low .risk-meter-fill {
+    background-color: #00d9a6;
+}
+
+.risk-low .danger-value {
+    color: #00d9a6;
+}
+
+.risk-suspicious .risk-meter-fill {
+    background-color: #e6c66f;
+}
+
+.risk-suspicious .danger-value {
+    color: #e6c66f;
+}
+
+.risk-danger .risk-meter-fill {
+    background-color: #ff7184;
+}
+
+.risk-danger .danger-value {
+    color: #ff7184;
+}
+
+.risk-disclaimer {
+    margin: -5px 0 15px;
+    color: #75868e;
+    font-size: 11px;
 }
 
 
@@ -467,5 +632,339 @@ body {
 
     .header h1 {
         font-size: 17px;
+    }
+
+    .mode-switch {
+        gap: 8px;
+    }
+
+    .mode-link {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+
+    .file-input-container {
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .file-picker-button {
+        padding: 9px 8px;
+        font-size: 11px;
+    }
+}
+
+/* Dashboard and recent-analysis history */
+body {
+    padding: clamp(16px, 2vw, 36px);
+}
+
+.container {
+    width: 100%;
+    max-width: 1680px;
+}
+
+.header {
+    min-height: clamp(52px, 6vh, 72px);
+    padding: 12px clamp(16px, 2vw, 32px);
+    margin-bottom: clamp(16px, 2vh, 24px);
+    border-left-width: 0;
+    background: #0b1a22;
+}
+
+.header-icon {
+    width: clamp(30px, 2.5vw, 40px);
+    height: clamp(30px, 2.5vw, 40px);
+    font-size: clamp(16px, 1.2vw, 20px);
+}
+
+.header h1 {
+    font-size: clamp(18px, 1.45vw, 25px);
+}
+
+.analyzer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 1.6vw, 28px);
+}
+
+.analyzer-card {
+    min-height: clamp(340px, 38vh, 480px);
+    padding: clamp(22px, 2.2vw, 36px);
+    border-radius: 14px;
+}
+
+.analyzer-card .section-title {
+    gap: 10px;
+    margin-bottom: clamp(16px, 1.5vh, 22px);
+}
+
+.analyzer-card .section-title h2 {
+    font-size: clamp(16px, 1.15vw, 20px);
+}
+
+.analyzer-card .description {
+    min-height: 2.8em;
+    margin-bottom: clamp(14px, 1.8vh, 22px);
+    font-size: clamp(13px, 0.9vw, 15px);
+}
+
+.analyzer-card .input-container {
+    height: clamp(48px, 5.5vh, 60px);
+}
+
+.analyzer-card #analisar-button,
+.analyzer-card #analisar-arquivo-button {
+    height: clamp(48px, 5.5vh, 60px);
+    margin-top: clamp(12px, 1.6vh, 18px);
+    font-size: clamp(13px, 0.9vw, 15px);
+}
+
+.drop-zone {
+    min-height: clamp(180px, 23vh, 300px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(8px, 1vh, 12px);
+    padding: clamp(16px, 2vw, 28px);
+    border: 1px dashed #263943;
+    border-radius: 6px;
+    background: rgba(8, 20, 27, 0.28);
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.drop-zone.is-dragging {
+    border-color: #00bfc6;
+    background: rgba(0, 191, 198, 0.08);
+}
+
+.drop-zone-icon {
+    display: grid;
+    width: clamp(44px, 4vw, 64px);
+    height: clamp(44px, 4vw, 64px);
+    place-items: center;
+    border: 1px solid #263943;
+    border-radius: 50%;
+    color: #9aabb2;
+    font-size: clamp(22px, 1.8vw, 30px);
+}
+
+.drop-zone p {
+    color: #dce5e9;
+    font-size: clamp(13px, 0.9vw, 15px);
+}
+
+.drop-zone-or {
+    display: none;
+}
+
+.drop-zone .file-picker-button {
+    padding: 10px 16px;
+    border-color: #007e87;
+    color: #00d9df;
+    font-size: clamp(12px, 0.85vw, 14px);
+}
+
+.drop-zone .file-picker-button:hover {
+    background: #0e252d;
+    color: #ffffff;
+}
+
+.drop-zone .file-name {
+    max-width: 100%;
+    flex: initial;
+    color: #9aabb2;
+    font-size: clamp(12px, 0.85vw, 14px);
+}
+
+.analyzer-card .upload-notice {
+    margin-top: 12px;
+    font-size: clamp(12px, 0.82vw, 14px);
+}
+
+.history-section {
+    margin-top: clamp(18px, 2.2vh, 28px);
+    overflow: hidden;
+    border-radius: 10px;
+    background: #0e1c25;
+}
+
+.history-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(14px, 1.3vw, 20px) clamp(18px, 2vw, 32px);
+    border-bottom: 1px solid #1b3039;
+}
+
+.history-heading .section-title {
+    gap: 8px;
+    margin: 0;
+}
+
+.history-heading h2 {
+    font-size: clamp(15px, 1.05vw, 18px);
+    font-weight: 500;
+}
+
+.history-icon {
+    color: #a8b6bc;
+    font-size: 14px;
+}
+
+.clear-history-button,
+.remove-history-button {
+    border: 1px solid #263943;
+    border-radius: 4px;
+    background: transparent;
+    color: #9aabb2;
+    cursor: pointer;
+}
+
+.clear-history-button {
+    padding: 8px 12px;
+    font-size: clamp(12px, 0.8vw, 14px);
+}
+
+.clear-history-button:hover,
+.remove-history-button:hover {
+    border-color: #00bfc6;
+    color: #00d9df;
+}
+
+.history-feedback {
+    color: #e58b96;
+    font-size: clamp(12px, 0.8vw, 14px);
+}
+
+.history-feedback:not(:empty) {
+    padding: 10px clamp(18px, 2vw, 32px) 0;
+}
+
+.history-table-wrap {
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.history-table th {
+    padding: 12px clamp(12px, 1.3vw, 20px);
+    color: #687a83;
+    font-size: clamp(11px, 0.75vw, 13px);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.history-table td {
+    padding: 14px clamp(12px, 1.3vw, 20px);
+    border-top: 1px solid #1b3039;
+    color: #aab8be;
+    font-size: clamp(12px, 0.85vw, 15px);
+}
+
+.history-date {
+    white-space: nowrap;
+}
+
+.history-target {
+    max-width: 360px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.history-action-heading,
+.history-action-cell {
+    width: 72px;
+    text-align: center !important;
+}
+
+.history-action-cell {
+    padding: 5px !important;
+}
+
+.remove-history-button {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.history-empty {
+    padding: 24px !important;
+    color: #687a83 !important;
+    text-align: center;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: clamp(11px, 0.75vw, 13px);
+    white-space: nowrap;
+}
+
+.status-badge::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 6px 1px 0;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.status-seguro {
+    background: #07392f;
+    color: #00d9a6;
+}
+
+.status-perigoso,
+.status-suspeito {
+    background: #3c232a;
+    color: #ff7184;
+}
+
+.status-baixo-risco {
+    background: #07392f;
+    color: #00d9a6;
+}
+
+.status-indisponível {
+    background: #3a3423;
+    color: #e6c66f;
+}
+
+@media (max-width: 760px) {
+    body {
+        padding: 12px;
+    }
+
+    .analyzer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .analyzer-card {
+        min-height: auto;
+        padding: clamp(18px, 5vw, 28px);
+    }
+
+    .drop-zone {
+        min-height: clamp(180px, 42vw, 260px);
+    }
+
+    .history-table {
+        min-width: 580px;
+    }
+}
+
+@media (min-width: 1920px) {
+    body {
+        padding: clamp(40px, 3vw, 64px);
     }
 }
