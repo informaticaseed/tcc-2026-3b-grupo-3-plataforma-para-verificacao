@@ -13,7 +13,7 @@
         return selectedTheme;
     }
 
-    const savedTheme = localStorage.getItem(storageKey) || "original";
+    const savedTheme = localStorage.getItem(storageKey) || "beige";
     applyTheme(savedTheme);
 
     document.addEventListener("DOMContentLoaded", function () {

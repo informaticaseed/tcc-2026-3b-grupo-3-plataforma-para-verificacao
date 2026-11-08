@@ -5,3 +5,4 @@ requests
 tldextract
 jinja2
 python-multipart
+pydantic

@@ -1,5 +1,8 @@
+import tempfile
 import unittest
+from pathlib import Path
 
+from src.Model.UrlCache import UrlResultCache, normalize_url
 from src.Model.Checks import (
     analisar_url,
     check_http,
@@ -54,6 +57,23 @@ class URLRiskScoreTests(unittest.TestCase):
         )
 
         self.assertEqual(score, 100)
+
+
+class UrlResultCacheTests(unittest.TestCase):
+    def test_normalizes_default_ports_and_fragments(self):
+        self.assertEqual(
+            normalize_url("HTTPS://Example.COM:443/path#section"),
+            "https://example.com/path",
+        )
+
+    def test_saved_result_can_be_read_from_sqlite(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            cache = UrlResultCache(Path(temp_dir) / "cache.db")
+            expected = {"Nivel de perigo": 0, "VirusTotal": {"harmless": 1}}
+
+            cache.set("https://example.com", expected)
+
+            self.assertEqual(cache.get("https://EXAMPLE.com/"), expected)
 
 
 if __name__ == "__main__":

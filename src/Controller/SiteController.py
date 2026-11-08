@@ -6,6 +6,7 @@ from src.View.main import resultado_analise, resultado_arquivo, pagina_inicial
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from src.Model.VirusTotalChecks import analisar_arquivo, analisar_virustotal
+from src.Model.UrlCache import UrlResultCache
 
 MAX_FILE_SIZE = 32 * 1024 * 1024
 
@@ -16,6 +17,7 @@ class URLCheckerRequest(BaseModel):
 def criar_app():
 
     app = FastAPI()
+    url_cache = UrlResultCache()
 
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -58,23 +60,27 @@ def criar_app():
         # Converte a URL recebida pelo Pydantic para string
         url = str(payload.url)
 
+        cached_result = url_cache.get(url)
+        if cached_result is not None:
+            print("Returning cached URL result")
+            cached_result["Resultado em cache"] = True
+            return cached_result
+
         print("Chamando o VT")
 
-      # Envia a URL para o Model
+        # Envia a URL para o Model
         score, reasons = analisar_url(url)
-
         virustotal = analisar_virustotal(url)
-
         print("VT finished")
 
+        if "erro" not in virustotal and "error" not in virustotal:
+            result = resultado_analise(url, score, reasons, virustotal)
+            url_cache.set(url, result)
+        else:
+            result = resultado_analise(url, score, reasons, virustotal)
 
-        # Envia o resultado para a View
-        return resultado_analise(
-            url,
-            score,
-            reasons,
-            virustotal
-        )
+        result["Resultado em cache"] = False
+        return result
 
     @app.post("/check_file")
     def check_file(file: UploadFile = File(...)):
